@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="flex-col list-nav">
+		<span class="ink-bar" [style.top.px]="top"></span>
+		<div class="nav-item" routerLinkActive="active">
+			<a class="label" routerLink="/home" (click)="top = 0">Home</a>
+		</div>
+		<div class="nav-item" routerLinkActive="active">
+			<a class="label" routerLink="/about" (click)="top = 61">About</a>
+		</div>
+		<div class="nav-item" routerLinkActive="active">
+			<a class="label" routerLink="/contact" (click)="top = 122">Contact</a>
+		</div>
+	</div>
+</div>
+
+<router-outlet></router-outlet>
