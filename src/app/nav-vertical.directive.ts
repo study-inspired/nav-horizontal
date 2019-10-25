@@ -2,7 +2,7 @@ import {AfterContentInit, AfterViewInit, Directive, ElementRef, HostListener, On
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Directive({
-    selector: '[appNavHorizontal]'
+    selector: '[appNavVertical]'
 })
 export class NavVerticalDirective implements OnInit, AfterViewInit
 {
@@ -27,7 +27,7 @@ export class NavVerticalDirective implements OnInit, AfterViewInit
     ngOnInit(): void
     {
         const inkBar = this.render2.createElement(`span`);
-        inkBar.className = 'ink-bar';
+        inkBar.className = 'ink-bar-vertical';
         inkBar.style.cssText = `top : ${this.top}px`;
         this.render2.appendChild(this.ref.nativeElement, inkBar);
 
@@ -44,7 +44,7 @@ export class NavVerticalDirective implements OnInit, AfterViewInit
     private setTopInkBar(topPosition)
     {
         this.top = topPosition;
-        let inkBar = this.render2.selectRootElement('.ink-bar');
+        let inkBar = this.render2.selectRootElement('.ink-bar-vertical');
         inkBar.style.cssText = `top : ${this.top}px`;
     }
 }
