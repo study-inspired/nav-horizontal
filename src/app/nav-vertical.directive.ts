@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Directive, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Directive({
@@ -35,6 +35,8 @@ export class NavVerticalDirective implements OnInit, AfterViewInit
 
     ngAfterViewInit(): void
     {
+
+        //TODO bug binding list menu
         const pathName = window.location.pathname;
         const listNodes = [...this.ref.nativeElement.childNodes];
         const elementActive = listNodes.find(x => x.innerHTML.includes(pathName));
