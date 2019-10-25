@@ -7,6 +7,14 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {Route, RouterModule, Routes} from '@angular/router';
+import { NavVerticalDirective } from './nav-vertical.directive';
+import {NgZorroAntdModule, NZ_I18N, en_US, NzButtonModule} from 'ng-zorro-antd';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+registerLocaleData(en);
 
 const appRoute: Routes = [
     {path: 'home', component: HomeComponent},
@@ -20,15 +28,19 @@ const appRoute: Routes = [
         AppComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent
+        ContactComponent,
+        NavVerticalDirective
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(appRoute, {})
+        RouterModule.forRoot(appRoute, {}),
+        NzButtonModule,
+        FormsModule,
+        HttpClientModule
 
     ],
-    providers: [],
+    providers: [{ provide: NZ_I18N, useValue: en_US }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
